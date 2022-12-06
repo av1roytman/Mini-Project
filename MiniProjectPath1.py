@@ -112,3 +112,21 @@ model = stats.OLS(Y, X1)
 results = model.fit()
 print("params: \n", results.params)
 print("R squared:", results.rsquared)
+
+# PROBLEM 3
+
+data = pd.DataFrame(dataset_1)
+Days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+stdevs = []
+means = []
+
+for day in Days:
+    dayData = data.loc[data['Day'] == day]
+    dataNp = np.array([float(x.replace(',', '')) for x in list(dayData['Total'])])
+    stdevs.append(dataNp.std())
+    means.append(dataNp.mean())
+
+print('Days:  ', Days)
+print('STDEV: ', stdevs)
+print('Mean:  ', means)
+print('Standard Dev of Means: ', np.array(means).std())
