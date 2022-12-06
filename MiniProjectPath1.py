@@ -90,12 +90,6 @@ results = model.fit()
 print("params: \n", results.params)
 print("R squared:", results.rsquared)
 
-# PROBLEM 3
-
-total = list(dataset_1['Total'])
-total = [i.replace(",", "") for i in total]
-total = [float(x) for x in total]
-
 precipitation = list(dataset_1['Precipitation'])
 for i in range(len(precipitation)):
     if precipitation[i] == 'T':
