@@ -57,6 +57,9 @@ pos[1, 1].set(xlim=(0, 214), ylim=(0, 10000))
 pos[1, 1].legend(loc='upper right')
 pos[1, 1].set(xlabel='Number of Day', ylabel='Number of bikes')
 
+[print(f"Standard Deviation of  of {dataset_1.columns[index + 5]} is {np.std(data):.3f}")
+ for index, data in enumerate([brooklyn, manhattan, williamsburg, queensboro])]
+
 plt.show()
 
 # PROBLEM 2
@@ -97,10 +100,10 @@ for i in range(len(precipitation)):
 precipitation[3] = 0.47
 precipitation = [float(x) for x in precipitation]
 
-plt.scatter(total, precipitation, color="blue")
+plt.scatter(precipitation, total, color="blue")
 plt.title('Precipitation vs Number of Bicyclist')
-plt.xlabel('Bicyclist')
-plt.ylabel('Precipitation')
+plt.xlabel('Precipitation')
+plt.ylabel('Bicyclist')
 plt.grid(True)
 plt.show()
 
@@ -127,6 +130,6 @@ for day in Days:
     means.append(dataNp.mean())
 
 print('Days:  ', Days)
-print('STDEV: ', stdevs)
-print('Mean:  ', means)
-print('Standard Dev of Means: ', np.array(means).std())
+print('STDEV: ', [f"{data:.2f}" for data in stdevs])
+print('Mean:  ', [f"{data:.2f}" for data in means])
+print('Standard Dev of Means: ', f"{np.array(means).std():.2f}")
